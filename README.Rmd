@@ -1,0 +1,146 @@
+---
+title: "Stimulus Sampling 360 Dataset"
+output: github_document
+---
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo=F,fig.width=5, fig.height=3)
+
+psych_360 <- read_csv('psych-360.csv')
+```
+# Files
+
+CSV of data: https://github.com/vhilab/psych-360/blob/master/psych-360.csv
+
+Video Files: https://vhil.stanford.edu/mm/psych-360-videos.zip
+
+# CSV File Information
+
+Each row represents a sample, which in this case is a participant watching a video. Each participant watched five videos, so each participant has five rows associated with it.
+
+- `location`: Locations of the study. Lab 1 and Lab2 are the rooms of our lab and Museum is our booth at The Tech Interactive in San Jose.
+- `pid`: The IDs of the participants. They are unique per location not across locations.
+- `video`: The video the participants watched.
+- `order`: The order of the video from the participant's perspective.
+- `age`: The age of the participant. (19-/19-25/26-45/45+)
+- `gender`: The gender of the participant. (Female/Male/Other)
+- `race`: The race of the participant.
+- `experience`: Whether the participant had prior VR experience.
+- `arousal`: The arousal level the participant reported after watching the video.
+- `presence`: The presence level the participant reported after watching the video.
+- `sickness`: The simulator sickess level the participant reported after watching the video.
+- `preference`: The preference level the participant reported after watching the video.
+- `exploration`: The proportion of a full 360-degree horizontal sweep participant made watching the video
+
+The first ten results are show below.
+
+```{r}
+psych_360 %>% head(10) %>% knitr::kable()
+```
+
+Each variable is shown descriptively and explored further below.
+
+## Identification (Location, PID, and Order)
+
+Note that the unique identifier for a participant is the pair of variables (location, pid).
+
+```{r echo=TRUE}
+# When grouping by PID only, how many PIDs have more than 5 rows associated with them?
+psych_360 %>% 
+  group_by(pid) %>%
+  count() %>%
+  filter(n != 5) %>%
+  nrow
+
+# Instead, it's better to group by PID and Location if you want participants to be uniquely grouped
+psych_360 %>%
+  group_by(pid, location) %>%
+  count() %>%
+  filter(n != 5) %>%
+  nrow()
+```
+
+
+## Video
+
+```{r fig.height=10, fig.width=8}
+psych_360 %>% 
+  ggplot(aes(x=video)) +
+  geom_bar() +
+  coord_flip()
+```
+
+## Age
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=age)) +
+  geom_bar()
+```
+
+## Gender
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=gender)) +
+  geom_bar()
+```
+
+## Race
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=race)) +
+  geom_bar() +
+  coord_flip()
+```
+
+## Experience
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=experience)) +
+  geom_bar()
+```
+
+## Arousal
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=arousal)) +
+  geom_bar()
+```
+
+## Presence
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=presence)) +
+  geom_bar()
+```
+
+## Sickness
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=sickness)) +
+  geom_bar()
+```
+
+## Preference
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=preference)) +
+  geom_bar()
+```
+
+## Exploration
+
+```{r}
+psych_360 %>% 
+  ggplot(aes(x=exploration)) +
+  geom_histogram(bins=20)
+```
+
