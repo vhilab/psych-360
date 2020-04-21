@@ -17,11 +17,11 @@ participant has five rows associated with it.
   - [`location`](#identification-location-pid-and-order): Locations of
     the study. Lab 1 and Lab2 are the rooms of our lab and Museum is our
     booth at The Tech Interactive in San Jose.
-  - [`pid`](#identification-location,-pid,-and-order): The IDs of the
+  - [`pid`](#identification-location-pid-and-order): The IDs of the
     participants. They are unique per location not across locations.
   - [`video`](#video): The video the participants watched.
-  - [`order`](#identification-location,-pid,-and-order): The order of
-    the video from the participant’s perspective.
+  - [`order`](#identification-location-pid-and-order): The order of the
+    video from the participant’s perspective.
   - [`age`](#age): The age of the participant. (19-/19-25/26-45/45+)
   - [`gender`](#gender): The gender of the participant.
     (Female/Male/Other)
