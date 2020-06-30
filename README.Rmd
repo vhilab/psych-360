@@ -13,7 +13,7 @@ psych_360 <- read_csv('psych-360.csv')
 
 CSV of data: https://github.com/vhilab/psych-360/blob/master/psych-360.csv
 
-Video Files: https://vhil.stanford.edu/mm/psych-360-videos.zip
+Video Files: https://vhil.stanford.edu/mm/psych-360-videos.zip. *Note that the permission to use these videos has been given only for research purposes.*
 
 # CSV File Information
 
