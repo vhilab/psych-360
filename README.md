@@ -6,7 +6,7 @@ Stimulus Sampling 360 Dataset
 CSV of data:
 <https://github.com/vhilab/psych-360/blob/master/psych-360.csv>
 
-Video Files: <https://stanfordvr.com/psych-360-videos>
+Video Files: <[https://stanfordvr.com/psych-360-videos](https://drive.google.com/file/d/1xkRvb9WYq1WeI74Qgp613bD9FnlfJ6da/view?usp=sharing)>
 
 # CSV File Information
 
